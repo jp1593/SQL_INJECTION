@@ -21,9 +21,10 @@ function App() {
 
   return (
     <React.StrictMode>
+       <button className=" bg-green-600 text-4xl w-1/2" onClick={handleSecureClick}>Secure</button>
+       <button className="bg-red-600 text-4xl w-1/2" onClick={handleInsecureClick}>Insecure</button>
       {isSecure ? <Secure /> : <Insecure />}
-        <button className=" bg-green-600 text-4xl w-1/2" onClick={handleSecureClick}>Secure</button>
-        <button className="bg-red-600 text-4xl w-1/2" onClick={handleInsecureClick}>Insecure</button>
+       
     </React.StrictMode>
   );
 }
