@@ -1,4 +1,3 @@
-
 function App() {
   return (
     <div class="min-w-screen min-h-screen bg-black flex flex-col items-center justify-center px-5 pt-5 pb-24">
