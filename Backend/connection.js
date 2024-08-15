@@ -1,24 +1,19 @@
 require("dotenv").config();
 
-const mysql = require("mysql2/promise");
+const mysql = require("mysql2");
 
-const config = {
+const connection = mysql.createConnection({
   host: "mysql-2f7acbf4-sqlinjection-3486.h.aivencloud.com",
   user: "avnadmin",
   password: process.env.PASS,
   database: "defaultdb",
-  port: "18312",
-};
+  port: 18312,
+});
 
-async function connectToDatabase() {
-  try {
-    const connection = await mysql.createConnection(config);
-    console.log("Connected to Aiven MySQL database");
+//Check connection
+connection.connect(function (error) {
+  if (error) throw error;
+  console.log("Connection succesfull");
+});
 
-    await connection.end();
-  } catch (error) {
-    console.error("Error connecting to database:", error);
-  }
-}
-
-connectToDatabase();
+module.exports = connection;
