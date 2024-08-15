@@ -1,6 +1,6 @@
 function App() {
   return (
-    <div class="min-w-screen min-h-screen bg-black flex flex-col items-center justify-center px-5 pt-5 pb-24">
+    <div className="min-w-screen min-h-screen bg-black flex flex-col items-center justify-center px-5 pt-5 pb-24">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         shape-rendering="geometricPrecision"
@@ -87,7 +87,7 @@ function App() {
           />
         </g>
       </svg>
-      <button class="rounded h-12 mt-10 px-5  bg-red-700 text-white text-2xl hover:bg-red-400 ...">
+      <button className="rounded h-12 mt-10 px-5  bg-red-700 text-white text-2xl hover:bg-red-400 ...">
         Search
       </button>
     </div>

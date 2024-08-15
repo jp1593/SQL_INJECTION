@@ -1,7 +1,17 @@
+import axios from "axios";
+import React from "react";
 
 function App() {
+  axios.get('http://localhost:3001/insecure')
+  .then(response => {
+    console.log(response.data);
+  })
+  .catch(error => {
+    console.log(error);
+  });
+
   return (
-    <div class="min-w-screen min-h-screen bg-black flex flex-col items-center justify-center px-5 pt-5 pb-24">
+    <div className="min-w-screen min-h-screen bg-black flex flex-col items-center justify-center px-5 pt-5 pb-24">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         shape-rendering="geometricPrecision"
@@ -46,7 +56,7 @@ function App() {
       <input
         type="text"
         placeholder="Insert your name here"
-        class="px-3 py-4 text-blueGray-600 relative bg-white rounded-2xl border-2 border-green-500 focus:border-blue-500 outline-none focus:outline-none focus:ring w-1/2"
+        className="px-3 py-4 text-blueGray-600 relative bg-white rounded-2xl border-2 border-green-500 focus:border-blue-500 outline-none focus:outline-none focus:ring w-1/2"
       />
       <svg
         version="1.1"
@@ -88,7 +98,7 @@ function App() {
           />
         </g>
       </svg>
-      <button class="rounded text-black h-12 mt-10 px-5  text-2xl bg-green-600 hover:bg-green-400">
+      <button className="rounded text-black h-12 mt-10 px-5  text-2xl bg-green-600 hover:bg-green-400">
         Search
       </button>
     </div>
