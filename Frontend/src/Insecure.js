@@ -120,11 +120,10 @@ function App() {
         Search
       </button>
       {data && (
-        <div className=" text-white">
-          {/* Render fetched data here */}
+        <div className=" text-white mt-10">
           {data.map((item) => (
             <p key={item.id}>
-              Name: {item.name} Salary: {item.salary} Role: {item.position} Age:{" "} 
+              Name: {item.name} Salary: {item.salary} Role: {item.position} Age:{" "}
               {item.age}
             </p>
           ))}

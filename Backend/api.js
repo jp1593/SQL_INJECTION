@@ -1,14 +1,18 @@
 const express = require('express');
 const connection = require('./connection.js'); 
 const cors = require('cors')
+const bodyParser = require('body-parser');
 
 const app = express();
 app.use(cors());
+app.use(bodyParser.json()); 
 const port = process.env.PORT || 3001;
 
-app.get('/insecure', async (req, res) => {
+app.post('/insecure', async (req, res) => {
   try {
-    const [rows] = await connection.promise().query("SELECT * FROM users WHERE name='John Doe'");
+    const { name } = req.body;
+    console.log(name);
+    const [rows] = await connection.promise().query("SELECT * FROM users WHERE name = '" + name + "'");
     res.json(rows);
   } catch (error) {
     console.error('Error fetching data:', error);
