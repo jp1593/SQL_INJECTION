@@ -46,7 +46,7 @@ function App() {
       <input
         type="text"
         placeholder="Insert your name here"
-        class="px-3 py-4 text-blueGray-600 relative bg-white rounded-2xl border-2 border-red-500 focus:border-blue-500 outline-none focus:outline-none focus:ring w-1/2"
+        class="px-3 py-4 text-blueGray-600 relative bg-white rounded-2xl border-2 border-green-500 focus:border-blue-500 outline-none focus:outline-none focus:ring w-1/2"
       />
       <svg
         version="1.1"
