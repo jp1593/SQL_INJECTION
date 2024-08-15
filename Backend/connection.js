@@ -1,9 +1,10 @@
+require("dotenv").config();
 const mysql = require("mysql2/promise");
 
 const config = {
   host: "mysql-2f7acbf4-sqlinjection-3486.h.aivencloud.com",
   user: "avnadmin",
-  password: "AVNS_ULw9pmfkefdCUjeEqmj",
+  password: process.env.PASS,
   database: "defaultdb",
   port: "18312",
 };
