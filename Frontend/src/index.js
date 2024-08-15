@@ -1,12 +1,12 @@
-import React, { useState } from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import Secure from './Secure';
-import Insecure from './Insecure'; 
+import React, { useState } from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
+import Secure from "./Secure";
+import Insecure from "./Insecure";
 
-import reportWebVitals from './reportWebVitals';
+import reportWebVitals from "./reportWebVitals";
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById("root"));
 
 function App() {
   const [isSecure, setIsSecure] = useState(false);
@@ -21,11 +21,9 @@ function App() {
 
   return (
     <React.StrictMode>
-      <div className='flex flex-col'>
-        <button onClick={handleSecureClick}>Secure</button>
-        <button onClick={handleInsecureClick}>Insecure</button>
-      </div>
       {isSecure ? <Secure /> : <Insecure />}
+        <button className=" bg-green-600 text-4xl w-1/2" onClick={handleSecureClick}>Secure</button>
+        <button className="bg-red-600 text-4xl w-1/2" onClick={handleInsecureClick}>Insecure</button>
     </React.StrictMode>
   );
 }
