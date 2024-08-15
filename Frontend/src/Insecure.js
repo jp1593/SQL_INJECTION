@@ -54,7 +54,7 @@ function App() {
         viewBox="94.80659217877096 0 131.02837988826818 118.20080862533692"
         id="svg2"
         xmlns="http://www.w3.org/2000/svg"
-        className="h-24 mt-10 scale-x-[-1]"
+        className="h-32 mt-10"
       >
         <g transform="translate(-303.88 -476.85)" id="layer1">
           <path
@@ -89,7 +89,7 @@ function App() {
           />
         </g>
       </svg>
-      <button class="rounded h-10 mt-10 px-5 bg-yellow-300 hover:bg-yellow-600 ...">
+      <button class="rounded h-12 mt-10 px-5  bg-red-700 text-white text-2xl hover:bg-red-400 ...">
         Search
       </button>
     </div>

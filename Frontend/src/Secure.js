@@ -89,7 +89,7 @@ function App() {
           />
         </g>
       </svg>
-      <button class="rounded text-black h-10 mt-10 px-5 bg-green-400 hover:bg-green-600">
+      <button class="rounded text-black h-12 mt-10 px-5  text-2xl bg-green-600 hover:bg-green-400">
         Search
       </button>
     </div>
