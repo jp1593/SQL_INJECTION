@@ -8,7 +8,7 @@ const port = process.env.PORT || 3001;
 
 app.get('/insecure', async (req, res) => {
   try {
-    const [rows] = await connection.promise().query('SELECT * FROM users');
+    const [rows] = await connection.promise().query("SELECT * FROM users WHERE name='John Doe'");
     res.json(rows);
   } catch (error) {
     console.error('Error fetching data:', error);

@@ -13,6 +13,12 @@ function App() {
   //   });
   const [data, setData] = useState(null);
 
+  const [inputValue, setInputValue] = useState("");
+
+  const handleInputChange = (event) => {
+    setInputValue(event.target.value);
+  };
+
   const fetchData = async () => {
     try {
       const response = await axios.get("http://localhost:3001/insecure"); // Replace with your API endpoint
@@ -23,22 +29,6 @@ function App() {
     }
   };
 
-  //   return (
-  //     <div>
-  //       <button onClick={fetchData}>Fetch Data</button>
-  //       {data && (
-  //         <div>
-  //           {/* Render fetched data here */}
-  //           {data.map((item) => (
-  //             <p key={item.id}>{item.name}</p>
-  //           ))}
-  //         </div>
-  //       )}
-  //     </div>
-  //   );
-  // }
-
-  // export default MyComponent;
   return (
     <div className="min-w-screen min-h-screen bg-black flex flex-col items-center justify-center px-5 pt-5 pb-24">
       <svg
@@ -76,6 +66,10 @@ function App() {
       </h1>
       <input
         type="text"
+        id="userinsert"
+        name="userinsert"
+        value={inputValue}
+        onChange={handleInputChange}
         placeholder="Insert your name here"
         className="px-3 py-4 text-blueGray-600 relative bg-white rounded-2xl border-2 border-red-500 focus:border-blue-500 outline-none focus:outline-none focus:ring w-1/2"
       />
@@ -126,12 +120,16 @@ function App() {
         Search
       </button>
       {data && (
-      <div className=" text-white">
-        {/* Render fetched data here */}
-        {data.map((item) => (
-          <p key={item.id}>{item.name}</p>
-        ))}
-      </div>)}
+        <div className=" text-white">
+          {/* Render fetched data here */}
+          {data.map((item) => (
+            <p key={item.id}>
+              Name: {item.name} Salary: {item.salary} Role: {item.position} Age:{" "} 
+              {item.age}
+            </p>
+          ))}
+        </div>
+      )}
     </div>
   );
 }
