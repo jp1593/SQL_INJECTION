@@ -1,29 +1,61 @@
+import axios from "axios";
+import React from "react";
+import { useState } from "react";
+
 function App() {
+  // axios
+  //   .get("http://localhost:3001/insecure")
+  //   .then((response) => {
+  //     console.log(response.data);
+  //   })
+  //   .catch((error) => {
+  //     console.log(error);
+  //   });
+  const [data, setData] = useState(null);
+
+  const fetchData = async () => {
+    try {
+      const response = await axios.get("http://localhost:3001/insecure"); // Replace with your API endpoint
+      setData(response.data);
+      console.log(response.data);
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
+  };
+
+  //   return (
+  //     <div>
+  //       <button onClick={fetchData}>Fetch Data</button>
+  //       {data && (
+  //         <div>
+  //           {/* Render fetched data here */}
+  //           {data.map((item) => (
+  //             <p key={item.id}>{item.name}</p>
+  //           ))}
+  //         </div>
+  //       )}
+  //     </div>
+  //   );
+  // }
+
+  // export default MyComponent;
   return (
     <div className="min-w-screen min-h-screen bg-black flex flex-col items-center justify-center px-5 pt-5 pb-24">
       <svg
         xmlns="http://www.w3.org/2000/svg"
-        shape-rendering="geometricPrecision"
-        text-rendering="geometricPrecision"
-        image-rendering="optimizeQuality"
-        fill-rule="evenodd"
-        clip-rule="evenodd"
         viewBox="0 0 512 512.337"
         className="h-40 mt-10"
       >
         <path
           fill="#194794"
-          fill-rule="nonzero"
           d="M318.647 319.401c17.395 38.715 58.464 45.55 93.095 52.245C462.398 381.432 512 429.266 512 483.478v22.094c0 3.725-3.04 6.765-6.775 6.765H6.775c-3.735 0-6.775-3.04-6.775-6.765v-19.988c0-65.14 52.682-103.616 105.911-110.739 38.724-5.175 70.951-10.431 84.581-57.241 3.527 3.089 7.233 6.208 11.008 9.566 35.277 31.363 75.025 32.724 109.01-.049 2.792-2.703 5.524-5.246 8.137-7.72z"
         />
         <path
           fill="#D2A75F"
-          fill-rule="nonzero"
           d="M318.647 319.411c9.1 20.247 24.677 31.781 42.409 39.122-59.984 44.01-142.797 41.466-204.49 3.855 18.687-10.064 28.045-24.638 33.907-44.795 3.526 3.09 7.242 6.21 11.027 9.577 35.277 31.363 75.025 32.724 109.01-.049 2.792-2.703 5.524-5.246 8.137-7.71z"
         />
         <path
           fill="#DBB26F"
-          fill-rule="nonzero"
           d="M259.328 391.058c-35.873.159-71.955-9.895-102.762-28.67 18.617-10.024 28.214-24.826 33.916-44.795 3.537 3.09 7.233 6.21 11.018 9.577 18.528 16.472 38.307 24.667 57.828 23.992v39.896z"
         />
         <path
@@ -45,7 +77,7 @@ function App() {
       <input
         type="text"
         placeholder="Insert your name here"
-        class="px-3 py-4 text-blueGray-600 relative bg-white rounded-2xl border-2 border-red-500 focus:border-blue-500 outline-none focus:outline-none focus:ring w-1/2"
+        className="px-3 py-4 text-blueGray-600 relative bg-white rounded-2xl border-2 border-red-500 focus:border-blue-500 outline-none focus:outline-none focus:ring w-1/2"
       />
       <svg
         version="1.1"
@@ -87,9 +119,19 @@ function App() {
           />
         </g>
       </svg>
-      <button className="rounded h-12 mt-10 px-5  bg-red-700 text-white text-2xl hover:bg-red-400 ...">
+      <button
+        onClick={fetchData}
+        className="rounded h-12 mt-10 px-5  bg-red-700 text-white text-2xl hover:bg-red-400 ..."
+      >
         Search
       </button>
+      {data && (
+      <div className=" text-white">
+        {/* Render fetched data here */}
+        {data.map((item) => (
+          <p key={item.id}>{item.name}</p>
+        ))}
+      </div>)}
     </div>
   );
 }
