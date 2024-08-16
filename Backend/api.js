@@ -22,7 +22,7 @@ app.post('/insecure', async (req, res) => {
 app.post('/secure', async (req, res) => {
     try {
       const { name } = req.body;
-      const [rows] = await connection.promise().query("SELECT * FROM users WHERE name = ?" [name])
+      const [rows] = await connection.promise().query("SELECT * FROM users WHERE name = ?", [name])
       res.json(rows);
     } catch (error) {
       console.error('Error fetching data:', error);

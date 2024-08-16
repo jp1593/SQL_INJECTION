@@ -1,4 +1,29 @@
+import axios from "axios";
+import React from "react";
+import { useState } from "react";
+
 function App() {
+  const [data, setData] = useState(null);
+
+  const [inputValue, setInputValue] = useState("");
+
+  const handleInputChange = (event) => {
+    setInputValue(event.target.value);
+  };
+
+  const fetchData = async () => {
+    const body = {
+      name: inputValue,
+    };
+    try {
+      const response = await axios.post("http://localhost:3001/secure", body); // Replace with your API endpoint
+      setData(response.data);
+      console.log(response.data);
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
+  };
+
   return (
     <div className="min-w-screen min-h-screen bg-black flex flex-col items-center justify-center px-5 pt-5 pb-24">
       <svg
@@ -37,6 +62,8 @@ function App() {
       <input
         type="text"
         placeholder="Insert your name here"
+        value={inputValue}
+        onChange={handleInputChange}
         className="px-3 py-4 text-blueGray-600 relative bg-white rounded-2xl border-2 border-green-500 focus:border-blue-500 outline-none focus:outline-none focus:ring w-1/2"
       />
       <svg
@@ -79,9 +106,22 @@ function App() {
           />
         </g>
       </svg>
-      <button className="rounded text-black h-12 mt-10 px-5  text-2xl bg-green-600 hover:bg-green-400">
+      <button
+        onClick={fetchData}
+        className="rounded text-black h-12 mt-10 px-5  text-2xl bg-green-600 hover:bg-green-400"
+      >
         Search
       </button>
+      {data && (
+        <div className=" text-white mt-10">
+          {data.map((item) => (
+            <p key={item.id}>
+              Name: {item.name} Salary: {item.salary} Role: {item.position} Age:{" "}
+              {item.age}
+            </p>
+          ))}
+        </div>
+      )}
     </div>
   );
 }
