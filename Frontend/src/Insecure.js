@@ -3,14 +3,6 @@ import React from "react";
 import { useState } from "react";
 
 function App() {
-  // axios
-  //   .get("http://localhost:3001/insecure")
-  //   .then((response) => {
-  //     console.log(response.data);
-  //   })
-  //   .catch((error) => {
-  //     console.log(error);
-  //   });
   const [data, setData] = useState(null);
 
   const [inputValue, setInputValue] = useState("");
@@ -20,8 +12,11 @@ function App() {
   };
 
   const fetchData = async () => {
+    const body = {
+      name: inputValue
+    }
     try {
-      const response = await axios.get("http://localhost:3001/insecure"); // Replace with your API endpoint
+      const response = await axios.post("http://localhost:3001/insecure", body); // Replace with your API endpoint
       setData(response.data);
       console.log(response.data);
     } catch (error) {
