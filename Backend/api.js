@@ -11,13 +11,10 @@ const port = process.env.PORT || 3001;
 app.post('/insecure', async (req, res) => {
   try {
     const { name } = req.body;
-    if( typeof name == "string"){
+    console.log(name);
       const [rows] = await connection.promise().query("SELECT * FROM users WHERE name = '" + name + "'");
+      console.log(rows)
       res.json(rows);
-    } else {
-      res.json("Inavlid parameter")
-    }
-    
   } catch (error) {
     console.error('Error fetching data:', error);
     res.status(500).send('Internal Server Error');

