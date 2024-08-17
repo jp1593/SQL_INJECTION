@@ -12,7 +12,7 @@ app.post('/insecure', async (req, res) => {
   try {
     const { name } = req.body;
     console.log(name);
-      const [rows] = await connection.promise().query("SELECT * FROM users WHERE name = '" + name + "'");
+      const [rows] = await connection.promise().query("SELECT * FROM users WHERE name = '" + name + " '");
       console.log(rows)
       res.json(rows);
   } catch (error) {
