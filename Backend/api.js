@@ -11,8 +11,13 @@ const port = process.env.PORT || 3001;
 app.post('/insecure', async (req, res) => {
   try {
     const { name } = req.body;
-    const [rows] = await connection.promise().query("SELECT * FROM users WHERE name = '" + name + "'");
-    res.json(rows);
+    if( typeof name == "string"){
+      const [rows] = await connection.promise().query("SELECT * FROM users WHERE name = '" + name + "'");
+      res.json(rows);
+    } else {
+      res.json("Inavlid parameter")
+    }
+    
   } catch (error) {
     console.error('Error fetching data:', error);
     res.status(500).send('Internal Server Error');
@@ -22,8 +27,12 @@ app.post('/insecure', async (req, res) => {
 app.post('/secure', async (req, res) => {
     try {
       const { name } = req.body;
+      if( typeof name == "string"){
       const [rows] = await connection.promise().query("SELECT * FROM users WHERE name = ?", [name])
       res.json(rows);
+      } else { 
+        res.json("Invalid parameters")
+      }
     } catch (error) {
       console.error('Error fetching data:', error);
       res.status(500).send('Internal Server Error');
