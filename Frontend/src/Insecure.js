@@ -16,7 +16,7 @@ function App() {
       name: inputValue
     }
     try {
-      const response = await axios.post("http://localhost:3001/insecure", body); // Replace with your API endpoint
+      const response = await axios.post("http://localhost:3001/insecure", body);
       setData(response.data);
       console.log(response.data);
     } catch (error) {

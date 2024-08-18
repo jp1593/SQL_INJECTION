@@ -8,9 +8,9 @@ const connection = mysql.createConnection({
   password: process.env.PASS,
   database: "defaultdb",
   port: 18312,
+  multipleStatements: true
 });
 
-//Check connection
 connection.connect(function (error) {
   if (error) throw error;
   console.log("Connection succesfull");
