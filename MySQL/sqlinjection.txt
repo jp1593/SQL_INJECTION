@@ -17,7 +17,7 @@ Retrieve information of the table:
 
 *Blanqueo o borrado de datos de tablas*
 '; DROP TABLE users;#
-
+'; DELETE FROM users;#
 
 
 
