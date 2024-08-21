@@ -1,4 +1,4 @@
-Table creation:
+--Table creation:
 
 CREATE TABLE users (
     id INT PRIMARY KEY AUTO_INCREMENT,
@@ -9,7 +9,7 @@ CREATE TABLE users (
 );
 
 
-Users data set:
+--Users data set:
 INSERT INTO users (name, salary, position, age)
 VALUES
   ('John Doe', 50000.00, 'Manager', 35),
